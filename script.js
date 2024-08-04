@@ -16,11 +16,17 @@ let score = 0;
 let total = 0;
 let round = 1; 
 let rolls = 0; 
-rollDiceBtn.addEventListener('click', () => {
+rollDiceBtn .addEventListener('click', () => {
   for (let i = 0; i<5; i++) {
     const randomNumber = Math.floor(Math.random() * 6) + 1
     diceValuesArr.push(randomNumber);
   }
+  listOfAllDice.innerHTML = '';
+  diceValuesArr.forEach(value => {
+      const listItem = document.createElement('li');
+      listItem.innerText = value;
+      listOfAllDice.appendChild(listItem)
+  })
 })
 
 rulesBtn.addEventListener("click", () => {
